@@ -29,6 +29,16 @@
                     <li>@Html.ActionLink("VSOnline WorkItems", "Index", "VSO")</li>
                     <li>@Html.ActionLink("UMP Score View", "Index", "UMP")</li>
                     <li><a href="@Url.Action("UMPView.html", "Pages")">UMP Graph</a></li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink("Sign out", "SignOut", "Account")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    }
                 </ul>
             </div>
         </div>

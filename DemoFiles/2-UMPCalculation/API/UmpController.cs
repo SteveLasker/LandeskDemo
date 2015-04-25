@@ -11,11 +11,7 @@ namespace LandeskUMP.API
     {
         public async Task<IEnumerable<Models.UmpScoreResult>> Get()
         {
-            Business.UmpCalculator umpCalculator = new Business.UmpCalculator();
-            IEnumerable<UmpScoreResult> umpResult = Enumerable.Empty<UmpScoreResult>();
-            umpResult = await umpCalculator.GetUmpScores();
-
-            return umpResult;
+            return await new Business.UmpCalculator().GetUmpScores();
         }
     }
 }

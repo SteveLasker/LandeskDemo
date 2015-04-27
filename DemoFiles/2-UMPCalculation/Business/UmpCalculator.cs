@@ -153,7 +153,7 @@ namespace LandeskUMP.Business
             rate2 = .075 + ((severityScore - 1) / 30);
 
             // This half of the score increases over entitlements points instead of time so:
-            double totalPoints = workItem.Cases.Sum(p => (p.Account.Total_Entitlement_Points__c ?? 0)) / pointsModifier;
+            double totalPoints = workItem.Cases.Sum(c => (c.Account.Total_Entitlement_Points__c ?? 0)) / pointsModifier;
 
             double ump2 = k / (1 + (((k - start2) / start2) * Math.Pow(Math.E, (-rate2 * totalPoints))));
 

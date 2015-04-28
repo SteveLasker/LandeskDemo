@@ -44,7 +44,7 @@ namespace LandeskUMP.Business
 
             //TODO: Move results to next line
             var result = await forceClient.QueryAsync<Models.Salesforce.Case>(sfQuery);
-            List<Models.Salesforce.Case> sfCases = result.records;
+            List<Models.Salesforce.Case> sfCases = result.Records;
 
             // Connect cases to defects:
             // For each WorkItem, get a collection of Salesforce Cases

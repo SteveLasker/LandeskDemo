@@ -25,7 +25,7 @@ namespace LandeskUMP.Controllers
                     {
                         QueryResult<Contact> contacts =
                             await client.QueryAsync<Contact>("SELECT Id, Salutation, FirstName, LastName, MailingCity, MailingState, MailingCountry From Contact");
-                        return contacts.records;
+                        return contacts.Records;
                     }
                     );
             }
@@ -52,7 +52,7 @@ namespace LandeskUMP.Controllers
                     {
                         QueryResult<Contact> contacts =
                             await client.QueryAsync<Contact>("SELECT Id, Salutation, FirstName, LastName, MailingStreet, MailingCity, MailingState, MailingPostalCode, MailingCountry, Phone, Email From Contact Where Id = '" + id + "'");
-                        return contacts.records;
+                        return contacts.Records;
                     }
                     );
             }
@@ -79,7 +79,7 @@ namespace LandeskUMP.Controllers
                     {
                         QueryResult<Contact> contacts =
                             await client.QueryAsync<Contact>("SELECT Id, Salutation, FirstName, LastName, MailingStreet, MailingCity, MailingState, MailingPostalCode, MailingCountry, Phone, Email From Contact Where Id= '" + id + "'");
-                        return contacts.records;
+                        return contacts.Records;
                     }
                     );
             }
@@ -121,7 +121,7 @@ namespace LandeskUMP.Controllers
             {
                 return Redirect(this.ViewBag.AuthorizationUrl);
             }
-            if (success.success == "true")
+            if (success.Success == "true")
             {
                 return RedirectToAction("Index");
             }
@@ -146,7 +146,7 @@ namespace LandeskUMP.Controllers
                     // Query the properties you'll display for the user to confirm they wish to delete this Contact
                     QueryResult<Contact> contacts =
                         await client.QueryAsync<Contact>(string.Format("SELECT Id, FirstName, LastName, MailingCity, MailingState, MailingCountry From Contact Where Id='{0}'", id));
-                    return contacts.records;
+                    return contacts.Records;
                 }
                 );
             }

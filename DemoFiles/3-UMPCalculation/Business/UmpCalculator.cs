@@ -64,11 +64,11 @@ namespace LandeskUMP.Business
             }
 
             // Put the list of Salesforce Cases back on each WorkItem in the vsoBugs collection
-            foreach (Models.VSOnline.WorkItem b in vsoBugs)
+            foreach (Models.VSOnline.WorkItem wi in vsoBugs)
             {
                 List<Models.Salesforce.Case> temp = new List<Models.Salesforce.Case>();
-                umpItems.TryGetValue(b.Id, out temp);
-                b.Cases = temp;
+                umpItems.TryGetValue(wi.Id, out temp);
+                wi.Cases = temp;
             }
             #endregion
 
